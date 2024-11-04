@@ -1,3 +1,5 @@
+package DTO;
+
 
 public class ProdutosDTO {
     private Integer id;
