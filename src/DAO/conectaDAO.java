@@ -14,6 +14,7 @@ public class conectaDAO {
         try {
         
             conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/uc11?useTimezone=true&serverTimezone=UTC","root", "R@ul1901");
+            System.out.println("conexao sucesso");
             
         } catch (SQLException erro){
             JOptionPane.showMessageDialog(null, "100 Erro ConectaDAO" + erro.getMessage());

@@ -4,6 +4,7 @@ package VIEW;
 import VIEW.listagemVIEW;
 import DTO.ProdutosDTO;
 import DAO.ProdutosDAO;
+import javax.swing.JOptionPane;
 
 
 public class cadastroVIEW extends javax.swing.JFrame {
@@ -150,11 +151,16 @@ public class cadastroVIEW extends javax.swing.JFrame {
         ProdutosDAO produtodao = new ProdutosDAO();
         produtodao.cadastrarProduto(produto);
         
+        JOptionPane.showMessageDialog(null, "CADASTRO REALIZADO COM SUCESSO!");
+        
+        
+        
     }//GEN-LAST:event_btnCadastrarActionPerformed
 
     private void btnProdutosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnProdutosActionPerformed
         listagemVIEW listagem = new listagemVIEW(); 
         listagem.setVisible(true);
+        dispose();
     }//GEN-LAST:event_btnProdutosActionPerformed
 
     /**
