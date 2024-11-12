@@ -3,7 +3,9 @@ package VIEW;
 
 import DTO.ProdutosDTO;
 import DAO.ProdutosDAO;
+import DAO.conectaDAO;
 import java.util.ArrayList;
+import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 
 
@@ -133,11 +135,23 @@ public class listagemVIEW extends javax.swing.JFrame {
 
     private void btnVenderActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVenderActionPerformed
         String id = id_produto_venda.getText();
+        System.out.println("+++++"+ id);
+        //ProdutosDAO produtosdao = new ProdutosDAO();
         
+        if (id != null && !id.isEmpty()) {
         ProdutosDAO produtosdao = new ProdutosDAO();
         
-        //produtosdao.venderProduto(Integer.parseInt(id));
-        listarProdutos();
+            try{
+                produtosdao.venderProduto(Integer.parseInt(id));
+                 listarProdutos();
+            }catch(NumberFormatException e){
+                System.out.println("ERRO ID do produto nãoe é um numero valido");
+            }
+        
+        }else{
+            System.out.println("Erro: ID do produto está vazio ou nulo");
+        }
+      
     }//GEN-LAST:event_btnVenderActionPerformed
 
     private void btnVendasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVendasActionPerformed

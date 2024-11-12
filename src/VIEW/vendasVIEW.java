@@ -20,7 +20,7 @@ public class vendasVIEW extends javax.swing.JFrame {
      */
     public vendasVIEW() {
         initComponents();
-        listarProdutos();
+        listarProdutosVendidos();
     }
 
     /**
@@ -35,7 +35,7 @@ public class vendasVIEW extends javax.swing.JFrame {
         jPanel1 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jTable1 = new javax.swing.JTable();
+        listaProdutos = new javax.swing.JTable();
         jButton1 = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
 
@@ -43,7 +43,7 @@ public class vendasVIEW extends javax.swing.JFrame {
 
         jLabel1.setText("LISTA DE PRODUTOS VENDIDOS");
 
-        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+        listaProdutos.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null},
                 {null, null, null, null},
@@ -62,7 +62,7 @@ public class vendasVIEW extends javax.swing.JFrame {
                 return types [columnIndex];
             }
         });
-        jScrollPane1.setViewportView(jTable1);
+        jScrollPane1.setViewportView(listaProdutos);
 
         jButton1.setText("CONSULTAR PRODUTOS");
 
@@ -169,17 +169,18 @@ public class vendasVIEW extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTable jTable1;
+    private javax.swing.JTable listaProdutos;
     // End of variables declaration//GEN-END:variables
 
- private void listarProdutos(){
+ private void listarProdutosVendidos(){
+   
         try {
             ProdutosDAO produtosdao = new ProdutosDAO();
             
             DefaultTableModel model = (DefaultTableModel) listaProdutos.getModel();
             model.setNumRows(0);
             
-            ArrayList<ProdutosDTO> listagem = produtosdao.listarProdutos();
+            ArrayList<ProdutosDTO> listagem = produtosdao.listarProdutosVendidos();
             
             for(int i = 0; i < listagem.size(); i++){
                 model.addRow(new Object[]{
